@@ -1,4 +1,4 @@
-#### Unity-Custom-Undo-Redo-System
+### Unity-Custom-Undo-Redo-System
 
 
 This is a Unity3d Framework for adding “Actions” to the editor window coupled with a custom Undo/Redo system.
@@ -11,7 +11,8 @@ At the moment the framework will not persist the Undo/Redo data if the editor-wi
 
 Included in the project is “How to use” text guide, and an example.
 
-See Unity forums for discussion:
+See Unity forums for discussion:  
+http://forum.unity3d.com/threads/248451-Decoupling-GUI-and-Logic-in-Editor-windows-and-a-Custom-Undo-Redo-system
 
 Short video of the included example:
 https://www.youtube.com/watch?v=ayaPmhzvyIM
