@@ -1,4 +1,4 @@
-### ****++The Framework:++****
+## **The Framework:**
 
 Is built around 3 main components which need to be implemented:
 - The Action Logic.
@@ -7,8 +7,8 @@ Is built around 3 main components which need to be implemented:
 	
 Any Editor window which needs to record actions must have an instance of the ActionRecorder class.
 
-#### ****++How to use this framework++:****  
-##### ++Action Logic++
+### **How to use this framework:**
+#### Action Logic
 (For an example – look at RadialSpreadLogic Class)
 
 Start a new C# file to implement your action code.  
@@ -28,9 +28,9 @@ These methods are used to insert any condition you want checked before performin
 
 To change the action default description (which is by default the class name) – you may override the SetActionDesc() method to return a string/action description of your choice.
 
-****Remember to decorate the class with the [Serializable] attribute.****
+**Remember to decorate the class with the [Serializable] attribute.**
 
-##### ++++ActionView/GUI++++  
+#### ActionView/GUI
 (For an example – look at RadialSpreadView Class)
 
 In the section will write the actionView/GUI class.  
@@ -48,12 +48,12 @@ To register the action connect the “button” which executes the action to the
 
 1. ViewToModelParams() – This is where you transfer information from this GUI to the logic part of your action.
 
-****Remember to decorate the class with the [Serializable] attribute.****
+**Remember to decorate the class with the [Serializable] attribute.**
 
-##### **++++EditorWindow++++**
+#### EditorWindow
 (For an example – look at ExampleEditorWindow Class)
 
-**++Fields and properties:++**  
+**Fields and properties:**  
 It must contain an ActionRecorder field/property – this will keep track the Undo/Redo stacks, i.e.:
 
 		private ActionRecorder _actionRecorder;
@@ -63,7 +63,7 @@ i.e.:
         
         private RadialSpreadView _radialSpreadAction;
 
-**++OnEnable()++**  
+**OnEnable()**  
 In the OnEnable() method of your window editor, add the following to initialize your recorder with the stack size of your choosing:
 
         if (_actionRecorder == null)
@@ -80,27 +80,27 @@ Initialize your action View/GUI classes in the same manner. i.e.:
         _radialSpreadAction = RadialSpreadView.GetInstance<RadialSpreadView>(_actionRecorder);
      }
          
-****++++OnGUI()++++****  
+**OnGUI()**  
 In order to display the GUI of your actions ( In the OnGUI() method of the editor window) call the OnGUI() method of the actionView/GUI class ( from section 2 - which you defined as a field at the beginning of this section).
 
 In order to display the built in UndoRedoGUI (from the Action Recorder Class) make the following call from within the OnGUI() method of the editor window:
 
     _actionRecorder.UndoRedoGUI(this.position);
 
-##### ++The ResponseObject++
+#### The ResponseObject
 
-A response object is ++returned++ from calling the following actions:  
+A response object is **returned** from calling the following actions:  
 PerformAction(), Undo(), Redo()
 
 A ResponseObject contains two memebers:
 - Result – (Enumeration) which can have 1 of 3 values: Success, SuccessWithWarning, Failed
 - StringResponse – (String) which allows you to supply more information.
 
-The response object is ++used++ in the following 3 methods:  
+The response object is **used** in the following 3 methods:  
 *ValidateBeforeDo(), ValidateBeforeUndo(), ValidateBeforeRedo()*  
 These methods have a reference to the response object – which you can be modified (Changing its result and string response). Returning a failed result in the response object will prevent the related action from being performed.
 
-##### ++Notes:++
+#### Notes:
 1.	Important - Do not use events, delegates, generics, static members and System.Type as members for ActionLogic/ActionView as these are not serialized by Unity.
 2.	If the default UndoRedoGUI implementation isn't used then:  
 	Your custom Undo and Redo button's in the window editor must be linked to the Undo() and Redo() methods of the ActionRecorder class instance. The Undo and Redo methods return a response object.
