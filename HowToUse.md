@@ -45,8 +45,7 @@ You now have to implement the following methods:
 1. OnGUI() – This is your custom GUI.  
 Members used in here must be defined at class level (not local), and they can be private.  
 To register the action connect the “button” which executes the action to the action recorder, this is simply done by calling PerformAction(); when the button is pressed/executed.
-
-1. ViewToModelParams() – This is where you transfer information from this GUI to the logic part of your action.
+2. ViewToModelParams() – This is where you transfer information from this GUI to the logic part of your action.
 
 **Remember to decorate the class with the [Serializable] attribute.**
 
