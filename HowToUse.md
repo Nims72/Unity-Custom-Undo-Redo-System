@@ -41,10 +41,10 @@ When declaring the action it must be done in the following manner:
 class “YourClassGUI” : ActionViewBase<”YourClassLogic”>  
 where ”YourClassLogic” is the class name you wrote in section 1.
 
-You now have to implement the following methods:  
-1. OnGUI() – This is your custom GUI.  
-Members used in here must be defined at class level (not local), and they can be private.  
-To register the action connect the “button” which executes the action to the action recorder, this is simply done by calling PerformAction(); when the button is pressed/executed.
+You now have to implement the following methods:
+
+1. OnGUI() – This is your custom GUI. Members used in here must be defined at class level (not local), and they can be private.  To register the action connect the “button” which executes the action to the action recorder, this is simply done by calling PerformAction(); when the button is pressed/executed.
+
 2. ViewToModelParams() – This is where you transfer information from this GUI to the logic part of your action.
 
 **Remember to decorate the class with the [Serializable] attribute.**
